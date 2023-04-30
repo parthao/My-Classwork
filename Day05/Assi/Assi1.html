@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="random1"></div>
+    <center>
+        <h1>Treasure Hunt</h1>
+        <table border="1">
+            <tr>
+                <td>
+                    <div id="1" onclick="clickme(1)"
+                        style="height: 100px; width: 100px;text-align: center;background-color: yellow;">
+                        Click ME
+                    </div>
+                </td>
+                <td>
+                    <div id="2" onclick="clickme(2)"
+                        style="height: 100px; width: 100px;text-align: center;background-color: yellow;">
+                        Click ME
+                    </div>
+                </td>
+                <td>
+                    <div id="3" onclick="clickme(3)"
+                        style="height: 100px; width: 100px;text-align: center;background-color: yellow;">
+                        Click ME
+                    </div>
+                </td>
+                <td rowspan="3">
+                    <div onclick="reff()">Refresh</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="4" onclick="clickme(4)"
+                        style="height: 100px; width: 100px; text-align: center;background-color: yellow;">
+                        Click ME
+                    </div>
+                </td>
+                <td>
+                    <div id="5" onclick="clickme(5)"
+                        style="height: 100px; width: 100px; text-align: center;background-color: yellow;">
+                        Click ME
+                    </div>
+                </td>
+                <td>
+                    <div id="6" onclick="clickme(6)"
+                        style="height: 100px; width: 100px;text-align: center;background-color: yellow;">
+                        Click ME
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <div id="7" onclick="clickme(7)"
+                        style="height: 100px; width: 100px; text-align: center;background-color: yellow;">
+                        Click ME
+                    </div>
+                </td>
+                <td>
+                    <div id="8" onclick="clickme(8)"
+                        style="height: 100px; width: 100px; text-align: center;background-color: yellow;">
+                        Click ME
+                    </div>
+                </td>
+                <td>
+                    <div id="9" onclick="clickme(9)"
+                        style="height: 100px; width: 100px;text-align: center;background-color: yellow;">
+                        Click ME
+                    </div>
+                </td>
+
+            </tr>
+
+        </table>
+        <h1>
+            <div id="showme" style="color:red"></div>
+        </h1>
+    </center>
+
+    <script>
+        var shw = document.getElementById("showme");
+        var ranum = document.getElementById("random1");
+        var flag = 1;
+        var rnum1 = Math.random();
+        var jack = Math.floor(rnum1 * 10);
+        
+        var elem = document.createElement("img");
+        elem.setAttribute("src", "boom.png");
+        elem.setAttribute("height", "50");
+        elem.setAttribute("width", "50"); 
+
+        function clickme(w) {
+
+            if (jack == 0) {
+                setTimeout(altr3, 1000);
+                window.location.href = "http://127.0.0.1:5500/Assi/Assi1.html";
+
+            }
+
+            if (w == jack && flag <= 3) {
+                document.getElementById(w).style.backgroundColor = "green";
+                document.getElementById(w).appendChild(elem);
+                setTimeout(altr, 10);
+
+                flag = 9;
+
+            }
+            else if (flag <= 3) {
+                document.getElementById(w).style.backgroundColor = "red";
+                if (flag == 3) {
+
+                    setTimeout(altr2, 10);
+
+                }
+                else {
+                    document.getElementById(w).onclick = null;
+                }
+                shw.innerHTML = "You Attempt = " + flag;
+                flag++
+            }
+
+
+        }
+        function reff() {
+            window.location.href = "http://127.0.0.1:5500/Assi/Assi1.html";
+        }
+
+        function altr() {
+            alert("Winner");
+        }
+        function altr2() {
+            alert("Better Luck Next Time");
+        }
+
+        function altr3() {
+            alert("Technical error Wait Second for refresh");
+        }
+    </script>
+</body>
+
+</html>

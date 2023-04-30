@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Calculator
+        </title>
+    </head>
+
+    <table>
+        <tr>
+            <td>
+                X
+            </td>
+            <td>
+                :&nbsp;&nbsp;<input type="number" id="number_x">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Y
+            </td>
+            <td>
+                 :&nbsp;&nbsp;<input type="number" id="number_y">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Result
+            </td>
+            <td>
+                <div id="result">
+                    :&nbsp;&nbsp;00
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td>
+                <input type="button" id="add" value="Addition" onclick="validtxt()">
+            </td>
+            <td>
+                <input type="button" id="sub" value="Substraction" onclick="validtxt()">
+            </td>
+            <td>
+                <input type="button" id="mul" value="Multiplication" onclick="validtxt()">
+            </td>
+            <td>
+                <input type="button" id="cls" value="Clear" onclick="">
+            </td>
+        </tr>
+    </table>
+<div id="error" style="color:red"> </div>
+
+<script>
+    var fromtxtx=document.getElementById("number_x");
+    var fromtxty=document.getElementById("number_y");
+    var fromtxtres=document.getElementById("result");
+    var errText=document.getElementById("error");
+
+    function validtxt(valx,valy,)
+    {
+        if(fromtxtx.value!="" || fromtxty.value!="")
+        {
+            
+        }
+        else
+        {
+            errText.innerHTML=("Please Enter Both the values");
+        }
+    }
+
+    function add()
+    {
+        
+        fromtxtres.innerHTML=parseInt(fromtxtx.value)+parseInt(fromtxty.value);
+    }
+    function sub()
+    {
+        
+        fromtxtres.innerHTML=parseInt(fromtxtx.value)-parseInt(fromtxty.value);
+    }
+    function mul()
+    {
+        
+        fromtxtres.innerHTML=parseInt(fromtxtx.value)*parseInt(fromtxty.value);
+    }
+    function cls()
+    {
+        
+        fromtxtx.value="";
+        fromtxty.value="";
+        fromtxtres.innerHTML="";
+    }
+
+
+</script>
+</html>

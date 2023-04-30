@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Calculator
+    </title>
+</head>
+
+<table>
+    <tr>
+        <td>
+            X
+        </td>
+        <td>
+            :&nbsp;&nbsp;<input type="number" id="number_x">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Y
+        </td>
+        <td>
+            :&nbsp;&nbsp;<input type="number" id="number_y">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Result&nbsp;&nbsp;:
+        </td>
+        <td>
+            <div id="result">
+                
+            </div>
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td>
+            <input type="button" id="add" value="Addition" onclick="doAction('add11')">
+        </td>
+        <td>
+            <input type="button" id="sub" value="Substraction" onclick="doAction('sub11')">
+        </td>
+        <td>
+            <input type="button" id="mul" value="Multiplication" onclick="doAction('mul11')">
+        </td>
+        <td>
+            <input type="button" id="cls" value="Clear" onclick="cls()">
+        </td>
+    </tr>
+</table>
+<div id="error" style="color:red"> </div>
+
+<script src="calc.js"></script>
+
+<script>
+    function doAction(act) {
+        all("number_x", "number_y", "result", "error", act);
+    }
+
+    function cls() 
+    {
+        var fromtxtx = document.getElementById("number_x");
+        var fromtxty = document.getElementById("number_y");
+        var fromtxtres = document.getElementById("result");
+        var errText = document.getElementById("error");
+
+        fromtxtx.value = "";
+        fromtxty.value = "";
+        fromtxtres.innerHTML = "";
+        errText.innerHTML = "";
+    }
+</script>
+
+
+
+</html>

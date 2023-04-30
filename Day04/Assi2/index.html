@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+
+    </title>
+</head>
+
+<body>
+    <img id="img123" src="project.png" style="width: 200px;height: 200px;position: absolute;top: 8px;"><br>
+    <div style="height: 100px; width: 75%;background-color:black;position: absolute;top: 138px;left: 0px;"></div>
+    <button onclick="runcar()" style="position: absolute;top: 265px;">Play</button>
+    <div id="valprint"></div>
+    <h1 id="insurance" style="color:red"></h1>
+</body>
+
+<script>
+    var playgame = document.getElementById("img123");
+    var carval = document.getElementById("valprint");
+    var msg = document.getElementById("insurance");
+    var run = 10;
+    var rot =30;
+    var crash1 = 8;
+
+    function runcar() {
+
+        carval.innerHTML = crash1;
+
+        if (run > 870) {
+            playgame.style.rotate= rot+'deg';
+            playgame.style.marginTop = crash1 + 'px';
+            rot+=5;
+            crash1 += 10;
+            
+            if(crash1==428)
+            {
+               msg.innerHTML="Need Insurance";
+                window.stop();
+            }
+        }
+        else {
+            playgame.style.marginLeft = run + 'px';
+            run += 10;
+        }
+    }
+</script>
+
+</html>

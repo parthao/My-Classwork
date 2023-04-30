@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drago Demo01</title>
+
+
+</head>
+
+<body>
+
+    <h1 id="demo">dddd</h1>
+    <section style="height: 500px;width: 500px;">
+        <section style="height: 250px;width: 250px;">
+            <img id="img1" src="download.png">
+        </section>
+    </section>
+
+    <script>
+
+        var mov = 400;
+        
+        for (i = 400; i > 0; i--) 
+        {
+            task(i);
+        }
+
+        function task(i) {
+            setTimeout(function () {
+                document.getElementById("img1").style.margin = i+"px";
+            }, 2000*i);
+        }
+        //var v=100;
+        //console.log(v);
+
+        //var v=100;
+        //var w=200;
+        //var z=v+w;
+        //console.log(z);
+
+
+        /* var c = Date();
+         //var d = VarDate();
+         var v = 100;
+ 
+         function loopz(z) {
+             for (i = 1; i <= z; i++) {
+                 console.log(i);
+             }
+         }
+         loopz(20);
+         console.log(d);*/
+        /* const d = (new Date()).toLocaleDateString('en-US');
+         document.getElementById("demo").innerHTML = d;
+ 
+         console.log(d);*/
+
+
+
+    </script>
+
+
+</body>
+
+</html>

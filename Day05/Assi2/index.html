@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+
+    </title>
+</head>
+
+<body>
+    <img id="img123" src="project.png" style="width: 200px;height: 200px;position: absolute;top: 8px;"> <img
+        id="img1234" src="project.png"
+        style="width: 200px;height: 200px;position: absolute;top: 8px;right:10px;-webkit-transform: scaleX(-1);transform: scaleX(-1);"><br>
+    <div style="height: 100px; width: 100%;background-color:black;position: absolute;top: 138px;left: 0px;"></div>
+    <button onclick="runq()" style="position: absolute;top: 265px;" id="start">Play</button>
+    <button disabled="disable" onclick="stophere()" style="position: absolute;top: 300px;" id="stop1">Stop</button>
+    <div id="valprint"></div>
+    <h1 id="insurance" style="color:red"></h1>
+    <img src="boom.png" id="boom1"
+        style="height: 100px;width: 100px; z-index:1;position: absolute;margin-left: 550px;display: none;">
+</body>
+
+<script>
+    var playgame = document.getElementById("img123");
+    var playgame1 = document.getElementById("img1234");
+    var carval = document.getElementById("valprint");
+    var start = document.getElementById("start");
+    var stop1 = document.getElementById("stop1");
+    var msg = document.getElementById("insurance");
+    var boom2 = document.getElementById("boom1");
+
+    var run = 10;
+    var rot = 30;
+    var crash1 = 8;
+    var reef;
+
+    function runq() {
+
+        reef = setInterval(runcar, 500);
+
+
+    }
+    function stophere() {
+        clearInterval(reef);
+        start.disabled = null;
+        stop1.disabled = "disabled";
+    }
+
+    function runcar() {
+
+        carval.innerHTML = run;
+        start.disabled = "disabled";
+        stop1.disabled = null;
+
+        if (run == 490) {
+            boom2.style.display = null;
+            clearInterval(reef);
+            start.disabled = null;
+            stop1.disabled = "disabled";
+        }
+        playgame.style.marginLeft = run + 'px';
+        run += 10;
+        playgame1.style.marginRight = run + 'px';
+        run += 10;
+    }
+</script>
+
+</html>
