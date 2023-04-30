@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <center>
+        <table border="1">
+            <tr>
+                <td colspan="2">
+                    <h1 style="text-align: center;">Registration Form</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- <video src="https://www.youtube.com/watch?v=fGn_ikKMdIk" controls="controls" autoplay="autoplay"></video> -->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/d_mZwMM0prA"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+
+                </td>
+                <td>
+                    <form action="">
+                        <table border="1" style="width: 100%;">
+                            <tr>
+                                <td>
+                                    Name :
+                                </td>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Birth Date :
+                                </td>
+                                <td><input type="date"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Email :
+                                </td>
+                                <td><input type="email"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Password :
+                                </td>
+                                <td><input type="password"></td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Address :
+                </td>
+                <td>
+                    <select name="State" id="">
+                        <option value="State">Maharashtra</option>
+                        <option value="State">Madhyapradesh</option>
+                    </select>
+                    <select name="District" id="">
+                        <option value="State">Pune</option>
+                        <option value="State">Nagpur</option>
+                        <option value="State">Mumbai</option>
+                    </select>
+                    <select name="City" id="">
+                        <option value="State">Maharashtra</option>
+                        <option value="State">Madhyapradesh</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gender :
+                </td>
+                <td><input type="radio" name="gender" value="Male"><label for="gender" value="Male">Male
+                        &nbsp;</label><input type="radio" name="gender" value="Female"><label
+                        for="gender">Female</label></td>
+            </tr>
+            <tr>
+                <td>
+                    Upload Photo :
+                </td>
+                <td><input type="file" accept="image/jpeg, image/png, image/jpg">
+                    <output></output>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Select Your Course :
+                </td>
+                <td>
+                    <select name="Course" id="">
+                        <option value="State">CDAC</option>
+                        <option value="State">DBDA</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Register"></td>
+                <td><input type="button" value="Clear"></td>
+            </tr>
+        </table>
+        </form>
+        </td>
+        </tr>
+        </table>
+    </center>
+
+    <script>
+        let photo = document.getElementById("file").files[0];
+        let formData = new FormData();
+
+        function uplo()
+        {
+            
+        }
+    </script>
+</body>
+
+</html>
