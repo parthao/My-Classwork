@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <form action="">
     <table border="1">
         <tr>
             <td>
@@ -34,13 +35,14 @@
                     </tr>
                     <tr>
                         <td>Address :</td>
-                        <td><input type="text" id="add1"></td>
+                        <td><input type="text" id="add1" ></td>
                         <td style="color:red" id="vadd"></td>
 
                     </tr>
                     <tr>
                         <td colspan="2">
                             <button value="Add" onclick="addrow()">Add</button>
+                            <!-- <input type="Butt" value="d"> -->
                         </td>
                     </tr>
                 </table>
@@ -48,7 +50,7 @@
         </tr>
     </table>
 
-
+</form>
     <script>
         function spetialchar(str) {
             var strr = str;
@@ -71,7 +73,7 @@
 
             for (i = 0; i < leg; i++) {
 
-                if (str.codePointAt(i) >= 32 && str.codePointAt(i) <= 47) {
+                if (str.codePointAt(i) >= 48 && str.codePointAt(i) <= 57) {
                     return true;
                 }
             }
@@ -84,7 +86,7 @@
 
         }
         function containsSpecialChars(str) {
-            var specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+            var specialChars =  /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
             return specialChars.test(str);
         }
 
