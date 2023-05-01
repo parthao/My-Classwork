@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td>
+                <table border="1">
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table id="tak" border="1" style="width: 100%;">
+
+                            </table>
+                        </td>
+
+                    </tr>
+
+                </table>
+            </td>
+            <td>
+                <table border="1">
+                    <tr>
+                        <td>Name :</td>
+                        <td><input type="text" id="name1"></td>
+                        <td style="color:red" id="vname"></td>
+                    </tr>
+                    <tr>
+                        <td>Address :</td>
+                        <td><input type="text" id="add1"></td>
+                        <td style="color:red" id="vadd"></td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button value="Add" onclick="addrow()">Add</button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+
+    <script>
+
+
+        function addrow() {
+            
+            validd();
+            
+        }
+
+        function validd() {
+
+            var reftotable = document.getElementById("tak");
+            var reftoname = document.getElementById("name1");
+            var reftoaddss = document.getElementById("add1");
+            var reftovname = document.getElementById("vname");
+            var reftovadd = document.getElementById("vadd");
+
+
+            if (reftoname.value != "" && reftoaddss.value != "") {
+                var row = `<tr>
+                        <td>`+ reftoname.value.trim() + `</td>
+                        <td>`+ reftoaddss.value.trim() + `</td>
+                    </tr>`
+
+                reftotable.innerHTML = reftotable.innerHTML + row;
+                reftoname.value = "";
+                reftoaddss.value = "";
+                reftovadd.innerHTML = "";
+                reftovname.innerHTML = "";
+            }
+            else {
+                if (reftoaddss.value == "") {
+                    reftovname.innerHTML = "";
+                    reftovadd.innerHTML = "Address Required";
+                }
+                if(reftoname.value == "") 
+                {
+                    reftovname.innerHTML = "Address Name";
+                }
+
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
