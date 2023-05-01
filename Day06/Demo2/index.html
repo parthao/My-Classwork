@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td>
+                <table border="1">
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table id="tak" border="1" style="width: 100%;text-align: center;">
+
+                            </table>
+                        </td>
+
+                    </tr>
+
+                </table>
+            </td>
+            <td>
+                <table border="1">
+                    <tr>
+                        <td>Name :</td>
+                        <td><input type="text" id="name1"></td>
+                        <td style="color:red" id="vname"></td>
+                    </tr>
+                    <tr>
+                        <td>Address :</td>
+                        <td><input type="text" id="add1"></td>
+                        <td style="color:red" id="vadd"></td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button value="Add" onclick="addrow()">Add</button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+
+    <script>
+
+
+        function addrow() {
+
+            validd("tak", "name1", "add1", "vname", "vadd");
+
+        }
+        function containsSpecialChars(str) {
+            var specialChars =
+                /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+            return specialChars.test(str);
+        }
+
+        function validd(tblref, controlID1, controlID2, errID1, errID2) {
+
+            var reftotable = document.getElementById(tblref);
+            var reftocontrol1 = document.getElementById(controlID1);
+            var reftocontrol2 = document.getElementById(controlID2);
+            var adddtext = reftocontrol2.value;
+            var reftoerro1 = document.getElementById(errID1);
+            var reftoerro2 = document.getElementById(errID2);
+            var notsptil = 0;
+            debugger
+
+
+            if (reftocontrol1.value != "" && reftocontrol2.value != "" && isNaN(reftocontrol1.value) == true && containsSpecialChars(reftocontrol1.value) == false) {
+                var row = `<tr>
+                        <td>`+ reftocontrol1.value.trim() + `</td>
+                        <td>`+ reftocontrol2.value.trim() + `</td>
+                    </tr>`
+
+                reftotable.innerHTML = reftotable.innerHTML + row;
+                reftoname.value = "";
+                reftoaddss.value = "";
+                reftovadd.innerHTML = "";
+                reftovname.innerHTML = "";
+            }
+            else {
+                if (reftocontrol2.value == "") {
+
+                    reftoerro2.innerHTML = "Address Required";
+                }
+                if (reftocontrol1.value == "") {
+                    reftoerro1.innerHTML = "Address Name";
+                }
+
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
