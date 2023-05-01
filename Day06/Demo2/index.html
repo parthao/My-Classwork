@@ -50,7 +50,33 @@
 
 
     <script>
+        function spetialchar(str) {
+            var strr = str;
 
+            var leg = strr.length;
+
+            for (i = 0; i < leg; i++) {
+
+                if (str.codePointAt(i) >= 32 && str.codePointAt(i) <= 47) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function numberchar(str) {
+            var strr = str;
+
+            var leg = strr.length;
+
+            for (i = 0; i < leg; i++) {
+
+                if (str.codePointAt(i) >= 32 && str.codePointAt(i) <= 47) {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         function addrow() {
 
@@ -63,6 +89,8 @@
             return specialChars.test(str);
         }
 
+
+
         function validd(tblref, controlID1, controlID2, errID1, errID2) {
 
             var reftotable = document.getElementById(tblref);
@@ -74,23 +102,33 @@
             var notsptil = 0;
             debugger
 
+            //spetialchar(reftocontrol2.value);
 
-            if (reftocontrol1.value != "" && reftocontrol2.value != "" && isNaN(reftocontrol1.value) == true && containsSpecialChars(reftocontrol1.value) == false) {
+            if (reftocontrol1.value != "" && reftocontrol2.value != "" && isNaN(reftocontrol1.value) == true && spetialchar(reftocontrol2.value) == false) {
                 var row = `<tr>
                         <td>`+ reftocontrol1.value.trim() + `</td>
                         <td>`+ reftocontrol2.value.trim() + `</td>
                     </tr>`
 
                 reftotable.innerHTML = reftotable.innerHTML + row;
-                reftoname.value = "";
-                reftoaddss.value = "";
-                reftovadd.innerHTML = "";
-                reftovname.innerHTML = "";
+                reftocontrol1.value = "";
+                reftocontrol2.value = "";
+                reftoerro1.innerHTML = "";
+                reftoerro2.innerHTML = "";
             }
             else {
                 if (reftocontrol2.value == "") {
 
                     reftoerro2.innerHTML = "Address Required";
+                }
+                if (reftocontrol1.value == "") {
+                    reftoerro1.innerHTML = "Address Name";
+                }
+                if ((spetialchar(reftocontrol2.value) == true)) {
+                    reftoerro2.innerHTML = "Don't insert Spatial Charecter"
+                }
+                if (isNaN(reftocontrol1.value) == false) {
+                    reftoerro1.innerHTML = "Don't insert number";
                 }
                 if (reftocontrol1.value == "") {
                     reftoerro1.innerHTML = "Address Name";
