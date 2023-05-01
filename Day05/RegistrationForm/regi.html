@@ -16,7 +16,7 @@
             <tr>
                 <td>
                     <!-- <video src="https://www.youtube.com/watch?v=fGn_ikKMdIk" controls="controls" autoplay="autoplay"></video> -->
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/d_mZwMM0prA"
+                    <iframe referrerpolicy="no-referrer-when-downgrade" width="560" height="315" src="https://www.youtube.com/embed/d_mZwMM0prA"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
@@ -98,7 +98,7 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="submit" value="Register"></td>
+                <td><input type="submit" value="Register" onclick="uplo()"></td>
                 <td><input type="button" value="Clear"></td>
             </tr>
         </table>
@@ -112,9 +112,9 @@
         let photo = document.getElementById("file").files[0];
         let formData = new FormData();
 
-        function uplo()
-        {
-            
+        function uplo() {
+            formData.append("photo", photo);
+            fetch('/upload/image', { method: "POST", body: formData });
         }
     </script>
 </body>
