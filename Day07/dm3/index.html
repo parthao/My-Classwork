@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+
+</head>
+
+<body>
+
+   <div style="border: 2px;border-style: solid;border-radius: 10px;border-width: 1px;">
+    <div id="head1" style="width: 100%;text-align: center;font-weight: 900;border: 2px;border-style: solid;border-radius: 10px;border-width: 1px;"></div>
+   <img id="img11"></div>
+   </div> 
+    <!-- <table id="tab">
+        <tr>
+            <td>
+
+            </td>
+        </tr>
+    </table> -->
+
+    <!-- /*row = `<tr>
+        <td>` + reci.meals[i].idMeal + `</td>
+        <td>` + reci.meals[i].strMeal + `</td>
+        </tr>`*/ -->
+
+    <script>
+
+        var tabbel = document.getElementById("tab");
+        var heading = document.getElementById("head1");
+        var myimg = document.getElementById("img11");
+        var text = document.getElementById("myrecip");
+        
+
+        fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=croissant')
+            .then((response) => response.json())
+            .then((reci) => {
+                console.log(reci)
+                for (i = 0; i <=reci.meals.length;i++) {
+                    //heading=`<div>`+reci.meals[i].strMeal+`</div>`
+                    myimg=`<img style="height: 200px;"src=`+reci.meals[i].strMealThumb+`> `
+
+                    heading.innerHTML=heading.innerHTML+`<br><br>`+reci.meals[i].strMeal;
+
+                    heading.innerHTML=heading.innerHTML+`<br><br>`+ myimg;
+                    //tabbel.innerHTML = tabbel.innerHTML + row;
+                }
+                
+            });
+    </script>
+
+
+</body>
+
+
+</html>
