@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        div {
+            display: inline-block;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="productcard">
+      
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        var div1 = document.getElementById("productcard");
+        var helper = new XMLHttpRequest();
+
+
+        helper.onreadystatechange = function () {
+            console.log(helper.readyState);
+            if (helper.readyState == 4 && helper.status == 200) {
+                var data = JSON.parse(helper.responseText);
+                console.log(data);
+            
+
+            }
+        };
+
+        helper.open('GET', 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes');
+        helper.setRequestHeader('X-RapidAPI-Key', 'aa9a223b9dmsh62cf504f97956e7p199c03jsn1d283bd16b2e');
+        helper.setRequestHeader('X-RapidAPI-Host', 'tasty.p.rapidapi.com');
+        helper.send();
+        //Pad Krapow
+        //Pad Krapow is one of the most popular Thai dishes. It consists of ground meat, such as pork, chicken, or beef, stir-fried with garlic, Thai chilies, fish sauce, soy sauce, and basil for an aromatic, fresh dish.
+
+
+    </script>
+</body>
+
+</html>
