@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        async function myAsyncFunction() {
+
+
+            const url = 'https://instagram-bulk-profile-scrapper.p.rapidapi.com/clients/api/ig/ig_profile?ig=drago&response_type=short&corsEnabled=false';
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'aa9a223b9dmsh62cf504f97956e7p199c03jsn1d283bd16b2e',
+                    'X-RapidAPI-Host': 'instagram-bulk-profile-scrapper.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.text();
+                console.log(result);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        myAsyncFunction();
+    </script>
+</body>
+
+</html>
