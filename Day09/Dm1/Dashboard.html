@@ -18,14 +18,14 @@
 
  <center>
     <div class="container jumbotron">
-        
         <div class="page-header" >
           <h1>Welcome<small id="mytext"> subtext</small></h1>
-        </div>
-
-        
+        </div>        
     </div>
 </center>
+
+<button type="button" class="btn btn-danger" onclick="empty()">Logout</button>
+
 
     <center>
         <div class="container">
@@ -43,7 +43,7 @@
         
     </center>
     <br>
-    <center><div id="productcard" style="text-align: center;"></center>
+    <center><div class ="jumbotron" id="productcard" style="text-align: center;"></center>
 
     </div>
 
@@ -53,8 +53,9 @@
         var div1 = document.getElementById("productcard");
         var serc = document.getElementById("serch1");
         var mytext1 = document.getElementById("mytext");
+        var throwme1 = document.getElementById("throwme");
         var helper = new XMLHttpRequest();
-
+        var val;
         function go()
         {
             div1.innerHTML = null;
@@ -64,6 +65,7 @@
                 var data = JSON.parse(helper.responseText);
                 console.log(data.meals[0]);
                 for (i = 0; i < data.meals.length; i++) {
+                    
                     var tab = ` <div id="productcard">
     <table id=table11 style="border: 1px black solid; margin: 10px; border-radius: 20px;">
         <tr>
@@ -71,13 +73,14 @@
                 <table style="width: 200px;">
                     <tr>
                         <td style="text-align: center;">
-                            <img style="height: 100px;width: 100px; border-radius: 50%;"
-                                src='${data.meals[i].strMealThumb}'>
+                            <img id="${i}" style="height: 100px;width: 100px; border-radius: 50%;"
+                                src='${data.meals[i].strMealThumb}' ">
+                               
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align: center;font-weight: 300;font-size: 20px;padding-bottom: 10px;padding-top: 5px;">
-                            ${data.meals[i].strMeal}
+                            <a href = "page2.html?id=${data.meals[i].idMeal}"> ${data.meals[i].strMeal} </a>
                         </td>
                     </tr>
                     <tr>
@@ -126,6 +129,15 @@
                 window.location.href = "Login.html"
             }
         }
+
+        function empty()
+        {
+            window.localStorage.removeItem("UserN");
+            window.localStorage.removeItem("Pass");
+
+            window.location.href = "Login.html"
+        }
+        
     </script>
 </body>
 
