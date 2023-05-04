@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="jquery-1.9.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body onload="loadme()">
+    <div class="container bg-success p-2 text-dark bg-opacity-25" style="width: 500px;;margin-top: 30px;padding: 20px;">
+
+        <div class="jumbotron">
+
+
+            <div class="page-header">
+                <h1>Member <small> Login</small></h1>
+            </div>
+
+            <span class="label">Username</span>
+
+            <input type="text" name="" id="uName" class="form-control" value="" required="required" pattern="" title=""
+                placeholder="Enter Username ...">
+            <br>
+            <span class="label">Password</span>
+
+            <input type="text" name="" id="passW" class="form-control" value="" required="required" pattern="" title=""
+                placeholder="Enter Password ...">
+
+            <br>
+
+
+            <button type="button" class="btn btn-primary col-lg-4" onclick="save1()"> Sign In</button>
+        </div>
+    </div>
+
+    <script>
+        var usr = document.getElementById("uName");
+        var pass = document.getElementById("passW");
+
+        function save1() 
+        {
+            window.localStorage.setItem("UserN", usr.value);
+            window.localStorage.setItem("Pass", pass.value);
+
+            window.location.href = "Dashboard.html"
+        }
+
+        function loadme()
+        {
+            var usrn = window.localStorage.getItem("UserN");
+            var passq = window.localStorage.getItem("Pass");
+
+            if(usrn=="Drago" && passq=="12345")
+            {
+                window.location.href = "Dashboard.html"
+            }
+            else{
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>
