@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        div {
+            display: inline-block;
+        }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="jquery-1.9.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<body onload="loadme()">
+
+ <center>
+    <div class="container jumbotron">
+        <div class="page-header" >
+          <h1>Welcome<small id="mytext"> subtext</small></h1>
+        </div>        
+    </div>
+</center>
+
+<button type="button" class="btn btn-danger" onclick="empty()">Logout</button>
+
+
+    <center>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="serch1" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" onclick="go()">Go!</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+        </div>
+        
+    </center>
+    <br>
+    <center><div class ="jumbotron" id="productcard" style="text-align: center;"></center>
+
+    </div>
+
+
+
+    <script>
+        var div1 = document.getElementById("productcard");
+        var serc = document.getElementById("serch1");
+        var mytext1 = document.getElementById("mytext");
+        var throwme1 = document.getElementById("throwme");
+        var helper = new XMLHttpRequest();
+        var val;
+        function go()
+        {
+            div1.innerHTML = null;
+            helper.onreadystatechange = function () {
+            console.log(helper.readyState);
+            if (helper.readyState == 4 && helper.status == 200) {
+                var data = JSON.parse(helper.responseText);
+                console.log(data.meals[0]);
+                for (i = 0; i < data.meals.length; i++) {
+                    
+                    var tab = ` <div id="productcard">
+    <table id=table11 style="border: 1px black solid; margin: 10px; border-radius: 20px;">
+        <tr>
+            <td style="padding: 20px;">
+                <table style="width: 200px;">
+                    <tr>
+                        <td style="text-align: center;">
+                            <img id="${i}" style="height: 100px;width: 100px; border-radius: 50%;"
+                                src='${data.meals[i].strMealThumb}' ">
+                               
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;font-weight: 300;font-size: 20px;padding-bottom: 10px;padding-top: 5px;">
+                            <a href = "page2.html?id=${data.meals[i].idMeal}"> ${data.meals[i].strMeal} </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; text-align: justify;">
+                            ${data.meals[i].strInstructions.substr(0, 143)} ...
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>`
+                    div1.innerHTML = div1.innerHTML + tab;
+
+                }
+                //debugger
+                var img1 = data.results[0].beauty_url;
+                var name1 = data.results[0].name;
+                var description1 = data.results[0].description;
+
+                console.log();
+                console.log();
+                console.log();
+
+            }
+        };
+
+        helper.open('GET', 'https://www.themealdb.com/api/json/v1/1/search.php?s=' + serc.value);
+        helper.send();
+
+        }
+
+        function loadme()
+        {
+            var usrn = window.localStorage.getItem("UserN");
+            var passq = window.localStorage.getItem("Pass");
+
+
+            mytext1.innerHTML="  "+usrn;
+            
+            if(usrn=="Drago" && passq=="12345")
+            {
+                
+            }
+            else{
+                window.location.href = "Login.html"
+            }
+        }
+
+        function empty()
+        {
+            window.localStorage.removeItem("UserN");
+            window.localStorage.removeItem("Pass");
+
+            window.location.href = "Login.html"
+        }
+        
+    </script>
+</body>
+
+</html>
