@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var helper = new XMLHttpRequest();
+
+        helper.onreadystatechange =function ()
+        {
+            if(helper.status==200 && helper.readyState==4)
+            {
+                var data = JSON.parse(helper.responseText);
+                console.log(data);
+            }
+        }
+        helper.open('GET','http://localhost:3000/multiple');
+        helper.send();
+    </script>
+</body>
+</html>

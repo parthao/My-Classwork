@@ -44,7 +44,7 @@
     </center>
     <br>
     <center>
-        <div id="repond" style="display: flex; flex-wrap: wrap; flex-direction: row;" class="container"></div>
+        <div id="repond" style="display: flex; flex-wrap: wrap; flex-direction: row; width: 800px;"></div>
     </center>
 
     <br>
@@ -85,8 +85,8 @@
                     for (i = 0; i < data.data.length; i++) {
                         var roow = `<div style=" margin: 20px;">
                     <img src="${mainID[i].avatar}"
-                        style="height: 100px; width: 100px; border-radius: 50%;">
-                    <div>${mainID[i].first_name} ${mainID[i].last_name}</div>
+                        style="height: 100px; width: 100px; border-radius: 50%;"><br>
+                    <div>${mainID[i].first_name} ${mainID[i].last_name}</div><br>
                     <div>${mainID[i].email}</div>
                 </div>`
                         div1.innerHTML = div1.innerHTML + roow;
