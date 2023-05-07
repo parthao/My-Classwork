@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var helper = new XMLHttpRequest;
+        helper.onreadystatechange=
+        function()
+        {
+            if(helper.status==200 && helper.readyState==4)
+            {
+                var data = JSON.parse(helper.responseText);
+                console.log(data);
+            }
+        }
+        helper.open("GET","http://localhost:3400/json");
+        helper.send();
+    </script>
+</body>
+</html>

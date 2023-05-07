@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery-1.9.1.js"></script>
+    <script src="bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <center> <table id="mytable" border="1">
+        <tr>
+            <th>Emp No</th>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Manager Number</th>
+            <th>Hire Date</th>
+            <th>Salary</th>
+            <th>Commition</th>
+            <th>Dept No</th>
+        </tr>
+    </table>
+</center>
+    <script>
+        var tablex = document.getElementById("mytable");
+        var helper = new XMLHttpRequest;
+        helper.onreadystatechange =
+            function () {
+                if (helper.status == 200 && helper.readyState == 4) {
+                    var data = JSON.parse(helper.responseText);
+                    console.log(data[0]);
+                    var row;
+                    for (i = 0; i < data.length; i++) {
+                        var print = data[i];
+                        if((i%2)==0)
+                        {
+                            row = `<tr class="success">
+            <td>
+                ${print.empno}
+            </td>
+            <td>
+                ${print.ename}
+            </td>
+            <td>
+                ${print.job}
+            </td>
+            <td>
+                ${print.mgr}
+            </td>
+            <td>
+                ${print.hire}
+            </td>
+            <td>
+                ${print.sal}
+            </td>
+            <td>
+                ${print.comm}
+            </td>
+            <td>
+                ${print.deptno}
+            </td>
+        </tr>`
+                        }
+                        else{
+                            row = `<tr>
+            <td>
+                ${print.empno}
+            </td>
+            <td>
+                ${print.ename}
+            </td>
+            <td>
+                ${print.job}
+            </td>
+            <td>
+                ${print.mgr}
+            </td>
+            <td>
+                ${print.hire}
+            </td>
+            <td>
+                ${print.sal}
+            </td>
+            <td>
+                ${print.comm}
+            </td>
+            <td>
+                ${print.deptno}
+            </td>
+        </tr>`
+                            
+                        }
+                        
+                        tablex.innerHTML = tablex.innerHTML + row;
+                    }
+                }
+            }
+        helper.open("GET", "http://localhost:3000/mysql");
+        helper.send();
+    </script>
+</body>
+
+</html>
