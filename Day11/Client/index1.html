@@ -10,19 +10,20 @@
 
 <body>
 
-    <center> <table id="mytable" border="1">
-        <tr>
-            <th>Emp No</th>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Manager Number</th>
-            <th>Hire Date</th>
-            <th>Salary</th>
-            <th>Commition</th>
-            <th>Dept No</th>
-        </tr>
-    </table>
-</center>
+    <center>
+        <table id="mytable" class="table">
+            <tr>
+                <th>Emp No</th>
+                <th>Name</th>
+                <th>Job</th>
+                <th>Manager Number</th>
+                <th>Hire Date</th>
+                <th>Salary</th>
+                <th>Commition</th>
+                <th>Dept No</th>
+            </tr>
+        </table>
+    </center>
     <script>
         var tablex = document.getElementById("mytable");
         var helper = new XMLHttpRequest;
@@ -34,16 +35,16 @@
                     var row;
                     for (i = 0; i < data.length; i++) {
                         var print = data[i];
-                        if((i%2)==0)
-                        {
-                            row = `<tr class="success">
+
+
+                        row = `<tr>
             <td>
                 ${print.empno}
             </td>
             <td>
                 ${print.ename}
             </td>
-            <td>
+            <td >
                 ${print.job}
             </td>
             <td>
@@ -62,38 +63,8 @@
                 ${print.deptno}
             </td>
         </tr>`
-                        }
-                        else{
-                            row = `<tr>
-            <td>
-                ${print.empno}
-            </td>
-            <td>
-                ${print.ename}
-            </td>
-            <td>
-                ${print.job}
-            </td>
-            <td>
-                ${print.mgr}
-            </td>
-            <td>
-                ${print.hire}
-            </td>
-            <td>
-                ${print.sal}
-            </td>
-            <td>
-                ${print.comm}
-            </td>
-            <td>
-                ${print.deptno}
-            </td>
-        </tr>`
-                            
-                        }
-                        
                         tablex.innerHTML = tablex.innerHTML + row;
+
                     }
                 }
             }

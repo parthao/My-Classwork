@@ -16,28 +16,31 @@ var server = http.createServer((request, response) => {
     response.setHeader("Access-Control-Allow-Origin", "*");
     if (request.url == "/mysql") 
     {
+
         
         connection.query(query,(error, result) => 
         {
             
             if (error == null) 
             {
+
                 response.setHeader("content-type", "application/json");
                 var data = JSON.stringify(result);
                 response.write(data);
-                connection.end();
+                //connection.end();
                 response.end();
             }
             else
             {
                 var errdata = JSON.stringify(error);
                 response.write(errdata)
-                connection.end();
+                //connection.end();
                 response.end();
             }
             
+            
         });
-
+        
     }
     else {
         response.write("No Idea");

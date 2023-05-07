@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery-1.9.1.js"></script>
+    <script src="bootstrap.min.js"></script>
+</head>
+<body>
+    
+    <div class="jumbotron">
+        <div class="container">
+            <div class="input-group">
+                <div class="input-group-addon"></div>
+                <input type="text" class="form-control" id="f_name" placeholder="first nam" name="first">
+                <input type="text" class="form-control" id="l_name" placeholder="lastname" name="last">
+                
+                <button type="button" class="btn btn-danger" onclick="login()">Send</button>
+                
+            </div>
+        </div>
+    </div>
+    
+  <script>
+    var fname =document.querySelector('#f_name');
+    var lname =document.querySelector('#l_name');
+
+    function login()
+    {
+        const dataint={
+            firstname : fname.value,
+            lastname : lname.value
+        }
+
+        const http = new XMLHttpRequest()
+        http.open('POST', '/login')
+        http.setRequestHeader('Content-type', 'application/json')
+        http.send(JSON.stringify(dataint)) // Make sure to stringify
+        http.onload = function() {
+            // Do whatever with response
+            alert(http.responseText)
+        }
+    }
+  </script>
+    
+</body>
+</html>
